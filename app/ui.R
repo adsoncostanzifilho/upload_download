@@ -1,5 +1,6 @@
 # UI
-library(shiny)
+require(shiny)
+require(DT)
 
 ui <- fluidPage(
   # App title ----
@@ -28,16 +29,8 @@ ui <- fluidPage(
       
       tags$hr(),
       
-      # Select the data to donwload ----
-      selectInput(
-        inputId = 'download_file',
-        label = 'Select a file to download',
-        choices = ""),
-      
-      # Donwload Button ----
-      downloadButton(
-        outputId = 'file_to_download',
-        label = 'Download File')
+      # Table Output ----
+      DTOutput('download_table')
       
     )
   )
